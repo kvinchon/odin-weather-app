@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="search">
+          <form action="#">
+            <label for="location">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>magnify</title>
+                <path
+                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
+                />
+              </svg>
+            </label>
+
+            <input
+              type="text"
+              name="location"
+              id="location"
+              placeholder="Search for places..."
+              required
+            />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+
+        <div class="result">
+          <div class="current">
+            <img
+              src="https://cdn.weatherapi.com/weather/128x128/day/113.png"
+              alt="Sunny"
+            />
+            <div class="temp"><span class="degrees">12</span>°</div>
+            <div class="date">
+              <span class="day">Sunday</span>, <span class="time">16:00</span>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="details">
+            <div class="condition">Mostly Cloudy</div>
+            <div class="rain">Rain - 30%</div>
+          </div>
+
+          <div class="location">New York, NY, USA</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <header>
+          <nav>
+            <ul>
+              <li><button name="hourly">Hourly</button></li>
+              <li><button name="daily" class="active">Daily</button></li>
+            </ul>
+          </nav>
+
+          <div class="profile">
+            <button type="button" name="celsius" class="active">°C</button>
+            <button type="button" name="fahrenheit">°F</button>
+            <div class="avatar"></div>
+          </div>
+        </header>
+
+        <div id="hourly" class="forecast hidden">
+          <div class="item">
+            <div class="day">17:00</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+              alt="Sunny"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">15</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">18:00</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+              alt="Sunny"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">12</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">19:00</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+              alt="Sunny"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">9</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">20:00</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+              alt="Sunny"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">8</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">21:00</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/night/113.png"
+              alt="Sunny"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">5</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">22:00</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/night/113.png"
+              alt="Clear night"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">4</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">23:00</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/night/113.png"
+              alt="Clear night"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">3</span>°</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="daily" class="forecast">
+          <div class="item">
+            <div class="day">Sun</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+              alt="Sunny"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">15</span>°</span>
+              <span class="minimal"><span class="degrees">-3</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">Mon</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/176.png"
+              alt="Patchy rain nearby"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">12</span>°</span>
+              <span class="minimal"><span class="degrees">7</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">Tue</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/119.png"
+              alt="Cloudy"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">9</span>°</span>
+              <span class="minimal"><span class="degrees">7</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">Wed</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/266.png"
+              alt="Light drizzle"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">8</span>°</span>
+              <span class="minimal"><span class="degrees">-1</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">Thu</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/332.png"
+              alt="Moderate snow"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">5</span>°</span>
+              <span class="minimal"><span class="degrees">-2</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">Fri</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+              alt="Partly cloudy"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">4</span>°</span>
+              <span class="minimal"><span class="degrees">-4</span>°</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="day">Sat</div>
+            <img
+              src="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+              alt="Sunny"
+            />
+            <div class="temp">
+              <span class="maximal"><span class="degrees">3</span>°</span>
+              <span class="minimal"><span class="degrees">-3</span>°</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="today">
+          <div class="title">Today's Highlights</div>
+          <div class="highlights">
+            <div class="item">
+              <div class="title">UV index</div>
+              <div class="large uv">5</div>
+            </div>
+            <div class="item wind">
+              <div class="title">Wind Status</div>
+              <div class="value"><span class="large">7.70</span> km/h</div>
+              <div>Direction: <span class="direction">WSW</span></div>
+            </div>
+            <div class="item">
+              <div class="title">Sunrise & Sunset</div>
+              <div class="comment sunrise">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <title>arrow-up-circle-outline</title>
+                  <path
+                    d="M13,18H11V10L7.5,13.5L6.08,12.08L12,6.16L17.92,12.08L16.5,13.5L13,10V18M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"
+                  />
+                </svg>
+                <span class="time">6:35 AM</span>
+              </div>
+              <div class="comment sunset">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <title>arrow-down-circle-outline</title>
+                  <path
+                    d="M11,6H13V14L16.5,10.5L17.92,11.92L12,17.84L6.08,11.92L7.5,10.5L11,14V6M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z"
+                  />
+                </svg>
+                <span class="time">5:42 PM</span>
+              </div>
+            </div>
+            <div class="item humidity">
+              <div class="title">Humidity</div>
+              <div class="value"><span class="large">12</span> %</div>
+              <div class="comment">Normal</div>
+            </div>
+            <div class="item visibility">
+              <div class="title">Visibility</div>
+              <div class="value"><span class="large">5.2</span> km</div>
+              <div class="comment">Average</div>
+            </div>
+            <div class="item air">
+              <div class="title">Air Quality</div>
+              <span class="large">105</span>
+              <div class="comment">Unhealthy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div>
+          Designed by
+          <a href="https://dribbble.com/awsmd" target="_blank">Awsmd</a> on
+          <a
+            href="https://dribbble.com/shots/20449736-Weather-App"
+            target="_blank"
+            >Dribbble</a
+          >
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
