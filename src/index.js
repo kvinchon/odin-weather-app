@@ -164,31 +164,29 @@ const unit = document.querySelector('.profile button.active');
 form.addEventListener('submit', (e) => {
   const location = form.location.value;
 
-  getWeather(location)
-    .then((data) => {
-      // render Sidebar info
-      const iconUrl = data.current.condition.icon
-        .split('64x64')
-        .join('128x128');
+  getWeather(location).then((data) => {
+    // render Sidebar info
+    const iconUrl = data.current.condition.icon.split('64x64').join('128x128');
 
-      currentIcon.src = iconUrl;
-      currentTemp.textContent =
-        unit.name === 'celsius' ? data.current.temp_c : data.current.temp_f;
-      currentDay.textContent = format(data.current.last_updated, 'EEEE');
-      currentTime.textContent = format(data.current.last_updated, 'p');
+    currentIcon.src = iconUrl;
+    currentTemp.textContent =
+      unit.name === 'celsius'
+        ? round(data.current.temp_c)
+        : round(data.current.temp_f);
+    currentDay.textContent = format(data.current.last_updated, 'EEEE');
+    currentTime.textContent = format(data.current.last_updated, 'p');
 
-      currentCondition.textContent = data.current.condition.text;
-      currentRain.textContent = `Rain - ${data.forecast[0].day.daily_chance_of_rain}%`;
+    currentCondition.textContent = data.current.condition.text;
+    currentRain.textContent = `Rain - ${data.forecast[0].day.daily_chance_of_rain}%`;
 
-      currentLocation.textContent = `${data.location.name}, ${data.location.country}`;
+    currentLocation.textContent = `${data.location.name}, ${data.location.country}`;
 
-      // render Forecast grid
-      displayForecast(data);
+    // render Forecast grid
+    displayForecast(data);
 
-      // render Today highlights
-      displayHighlights({ current: data.current, forecast: data.forecast[0] });
-    })
-    .catch((error) => console.error(error));
+    // render Today highlights
+    displayHighlights({ current: data.current, forecast: data.forecast[0] });
+  });
 
   e.preventDefault();
 });
