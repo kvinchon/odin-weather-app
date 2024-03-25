@@ -44,7 +44,15 @@ form {
       opacity: 1;
     }
   }
-
+  button {
+    background-color: mediumpurple;
+    border: 1px solid mediumpurple;
+    border-radius: 5px;
+    color: #fff;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 700;
+  }
   svg {
     height: 30px;
   }
@@ -239,4 +247,8 @@ footer {
   align-items: center;
   height: 50px;
   z-index: 1;
+
+  a {
+    color: #000;
+  }
 }

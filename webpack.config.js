@@ -14,7 +14,9 @@ module.exports = {
       title: 'Weather App',
       template: './src/index.html',
     }),
-    new Dotenv(),
+    new Dotenv({
+      ignoreStub: true,
+    }),
   ],
   output: {
     filename: '[name].bundle.js',
