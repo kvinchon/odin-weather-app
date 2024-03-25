@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -14,8 +14,13 @@ module.exports = {
       title: 'Weather App',
       template: './src/index.html',
     }),
-    new Dotenv({
-      ignoreStub: true,
+    new webpack.DefinePlugin({
+      process: {
+        env: {
+          // TODO: move to server side
+          API_KEY: JSON.stringify('7a1d70bc6cec43c5826105902242103'),
+        },
+      },
     }),
   ],
   output: {
