@@ -28,7 +28,7 @@ function processData(data) {
 async function getWeather(location) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=3&aqi=yes&alerts=no
+      `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=3&aqi=yes&alerts=no
         `,
       { mode: 'cors' }
     );
